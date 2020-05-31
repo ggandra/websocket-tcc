@@ -1,0 +1,12 @@
+{
+  "name": "websocket-tcc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ggandra/websocket-tcc.git",
+  "author": "ggandra <gandra.gabriel@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
