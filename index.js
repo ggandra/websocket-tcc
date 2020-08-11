@@ -1,7 +1,7 @@
 const express = require('express');
 const server = express();
 
-const serverListening = server.listen(3000);
+const serverListening = server.listen(3333);
 const io = require('socket.io')(serverListening);
 
 let count = 0;
@@ -9,13 +9,13 @@ io.on('connection', socket => {
     count ++;
     console.log(count);
     if (socket.handshake.query.match) {
-        
+        console.log('hanshake')
     }
     socket.join(1);
     socket.on('updateLocation', data => {
         console.log(data);
         socket.to(1).emit('locationReceived', { coordinates: {
-            latitude: '-21.2121147', longitude: '-50.4170587,17z'
+            latitude: data.latitude, longitude: data.longitude
         },})
     });
     socket.on('disconnect', data => {
