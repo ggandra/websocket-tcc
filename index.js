@@ -1,7 +1,7 @@
 const express = require('express');
 const server = express();
 
-const serverListening = server.listen(3333);
+const serverListening = server.listen(3030);
 const io = require('socket.io')(serverListening);
 
 let count = 0;
@@ -15,7 +15,7 @@ io.on('connection', socket => {
     socket.on('updateLocation', data => {
         console.log(data);
         socket.to(1).emit('locationReceived', { coordinates: {
-            latitude: data.latitude, longitude: data.longitude
+            latitude: data.latitude, longitude: data.longitude, courier_id: data.id
         },})
     });
     socket.on('disconnect', data => {
